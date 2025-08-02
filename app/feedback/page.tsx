@@ -20,8 +20,21 @@ export default function FeedBackPage(){
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setSubmitted(true);
-    }
+
+        const res = await fetch("/api/submit-feedback" , {
+            method : "POST",
+            headers: {
+                "Content-Type" : "application/json",
+            },
+            body: JSON.stringify(form),
+        });
+
+        if(res.ok){
+            setSubmitted(true);
+        }else{
+            alert("Something went wrong");
+        }
+    };
 
     return (
         <div className = {styles.feedback_container}>
