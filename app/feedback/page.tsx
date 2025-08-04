@@ -64,8 +64,9 @@ export default function FeedBackPage(){
                     />
 
                     <textarea 
-                        name = {form.message}
+                        name = "message"
                         placeholder = "Your Message"
+                        value = {form.message}
                         onChange = {handleChange}
                         required
                         className = {styles.message_input}
